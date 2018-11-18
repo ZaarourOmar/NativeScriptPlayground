@@ -28,5 +28,6 @@ https://docs.nativescript.org/ui/components.
         <Label text="Tap the button2" class="h1 text-center"/>
         <Button text="TAP" tap="{{ onTap }}" class="btn btn-primary btn-active"/>
         <Label text="{{ message }}" class="h2 text-center" textWrap="true"/>
+        <Button text="Go to Details Page" onTap="onNavigatingTo"/>
     </StackLayout>
 </Page>
