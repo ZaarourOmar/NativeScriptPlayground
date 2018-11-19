@@ -8,6 +8,7 @@ import { EventData } from "tns-core-modules/data/observable";
 import { Page } from "tns-core-modules/ui/page";
 import { Button } from "tns-core-modules/ui/button";
 import { MainVM } from "./main-view-model";
+import { DetailsVM } from "../details-page/details-page-viewmodel";
 
 // Event handler for Page "navigatingTo" event attached in main-page.xml
 export function navigatingTo(args: EventData) {
@@ -31,6 +32,23 @@ export function navigatingTo(args: EventData) {
     page.bindingContext = new MainVM();
 }
 
+
+var view = require("ui/core/view");
+var drawer;
+
+export function pageLoaded (args:EventData)
+{
+    var page = args.object;
+    drawer =  view.getViewById(page, "sideDrawer");
+    
+}
+
+
+export function toggleDrawer(args:EventData)
+{
+    drawer.toggleDrawerState();
+    console.log("test");
+}
 export function goToDetails(args:EventData)
 {
     var button = <Button>args.object;
@@ -43,7 +61,8 @@ export function goToDetails(args:EventData)
         moduleName:'pages/details-page/details-page',
         context:{param1: "value1",
                 param2: "value2"
-                }
+                },
+                bindingContext: new DetailsVM()
     }
     
     frameModule.topmost().navigate(navigationOptions);

@@ -1,31 +1,41 @@
-<!--
-The markup in NativeScript apps contains a series of user interface components, each
-of which NativeScript renders with a platform-specific iOS or Android native control.
-You can find a full list of user interface components you can use in your app at
-https://docs.nativescript.org/ui/components.
--->
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" xmlns:sd="nativescript-ui-sidedrawer" navigatingTo="navigatingTo" class="page">
    
     <Page.actionBar>
         <ActionBar title="Hello NativeScript" icon="" class="action-bar">
         </ActionBar>
     </Page.actionBar>
-    
-    <!--
-    The StackLayout stacks UI components on the screen—either vertically or horizontally.
-    In this case, the StackLayout does vertical stacking; you can change the stacking to
-    horizontal by applying a orientation="horizontal" attribute to the <StackLayout> element.
-    You can learn more about NativeScript layouts at
-    https://docs.nativescript.org/ui/layout-containers.
 
-    These components make use of several CSS class names that are part of the NativeScript
-    core theme, such as p-20, btn, h2, and text-center. You can view a full list of the
-    class names available for styling your app at https://docs.nativescript.org/ui/theme.
-    -->
-    <StackLayout class="p-20">
-        <Label text="{{ message }}" class="h1 text-center"/>
-        <Button text="TAP" tap="{{ onTap }}" class="btn btn-primary btn-active"/>
-      
-        <Button text="Go to Details Page" onTap="goToDetails"/>
-    </StackLayout>
+
+<GridLayout width="400">
+     <sd:RadSideDrawer id="sideDrawer">
+        <!-- side drawer content -->
+        <sd:RadSideDrawer.drawerContent>
+            <StackLayout class="sidedrawer-left">
+                <StackLayout class="sidedrawer-header">
+                    <Label text="Hello RadSideDrawer!" class="sidedrawer-header-brand" />
+                </StackLayout>
+                <StackLayout class="sidedrawer-content">
+                    <Label text="Home" class="sidedrawer-list-item-text" />
+                    <Label text="Basics" class="sidedrawer-list-item-text" />
+                    <Label text="Options" class="sidedrawer-list-item-text" />
+                    <Label text="Help" class="sidedrawer-list-item-text" />
+                    <Label text="Advanced" class="sidedrawer-list-item-text" />
+                </StackLayout>
+            </StackLayout>
+        </sd:RadSideDrawer.drawerContent>
+
+        <!-- The main content -->
+        <sd:RadSideDrawer.mainContent>
+            <StackLayout>
+                <Label text="{{ message }}" class="h1 text-center"/>
+                <Button text="TAP" tap="{{ onTap }}" class="btn btn-primary btn-active"/>
+                <Button text="Go to Details Page" onTap="goToDetails"/>
+                <Button text="Toggle Drawer" onTap="toggleDrawer"/>
+            </StackLayout>
+        </sd:RadSideDrawer.mainContent>
+
+    </sd:RadSideDrawer>
+    
+   
+</GridLayout>
 </Page>

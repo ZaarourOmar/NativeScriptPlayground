@@ -6,5 +6,7 @@ import { DetailsVM } from "./details-page-viewmodel";
 export function navigatingTo(args: EventData) {
    
     let page = <Page>args.object;
-    page.bindingContext = new DetailsVM();
+    //page.bindingContext = new DetailsVM();
+    console.log(page.navigationContext.param1);
+    console.log(page.navigationContext.param2);
 }
