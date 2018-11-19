@@ -1,4 +1,6 @@
 import { Observable } from "tns-core-modules/data/observable";
+import { ObservableArray } from "data/observable-array";
+
 
 export class DetailsVM extends Observable {
 
@@ -20,12 +22,13 @@ export class DetailsVM extends Observable {
         }
     }
 
+   
+
     public onTap() {
         this.updateMessage();
-     console.log("test");
     }
 
     private updateMessage() {
-       this.message=new Date().toString();
+       this.message=new Date().toTimeString();
     }
 }

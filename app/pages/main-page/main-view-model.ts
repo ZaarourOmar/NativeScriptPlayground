@@ -1,6 +1,6 @@
 import { Observable } from "tns-core-modules/data/observable";
 
-export class HelloWorldModel extends Observable {
+export class MainVM extends Observable {
 
     private _counter: number;
     private _message: string;
@@ -10,9 +10,11 @@ export class HelloWorldModel extends Observable {
 
         // Initialize default values.
         this._counter = 42;
-        this.updateMessage();
+        this.updateMessage();   
     }
 
+ 
+   
     get message(): string {
         return this._message;
     }

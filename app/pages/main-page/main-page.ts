@@ -7,7 +7,7 @@ logic, and to set up your page’s data binding.
 import { EventData } from "tns-core-modules/data/observable";
 import { Page } from "tns-core-modules/ui/page";
 import { Button } from "tns-core-modules/ui/button";
-import { HelloWorldModel } from "./main-view-model";
+import { MainVM } from "./main-view-model";
 
 // Event handler for Page "navigatingTo" event attached in main-page.xml
 export function navigatingTo(args: EventData) {
@@ -28,10 +28,10 @@ export function navigatingTo(args: EventData) {
     You can learn more about data binding in NativeScript at
     https://docs.nativescript.org/core-concepts/data-binding.
     */
-    page.bindingContext = new HelloWorldModel();
+    page.bindingContext = new MainVM();
 }
 
-export function onNavigatingTo(args:EventData)
+export function goToDetails(args:EventData)
 {
     var button = <Button>args.object;
     console.log(button.text);
@@ -40,7 +40,7 @@ export function onNavigatingTo(args:EventData)
 
        // console.log("Navigating");
        var navigationOptions={
-        moduleName:'detail-page',
+        moduleName:'pages/details-page/details-page',
         context:{param1: "value1",
                 param2: "value2"
                 }

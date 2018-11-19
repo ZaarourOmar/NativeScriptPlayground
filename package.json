@@ -14,6 +14,7 @@
   "repository": "<fill-your-repository-here>",
   "dependencies": {
     "nativescript-theme-core": "~1.0.4",
+    "nativescript-ui-listview": "^3.8.0",
     "tns-core-modules": "~5.0.2"
   },
   "devDependencies": {
