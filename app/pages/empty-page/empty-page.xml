@@ -1,0 +1,7 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" class="page">
+    <GridLayout>
+        <StackLayout>
+            <Button text="Home" tap="goHome"/>
+        </StackLayout>
+    </GridLayout>
+</Page>
